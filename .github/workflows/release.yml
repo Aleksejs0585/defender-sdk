@@ -49,13 +49,13 @@ jobs:
           prerelease: ${{ inputs.prerelease }}
 
       - name: Generate SBOM
-        uses: anchore/sbom-action@ab5d7b5f48981941c4c5d6bf33aeb98fe3bae38c # v0.15.10
+        uses: anchore/sbom-action@cee1b8e05ae5b2593a75e197229729eabaa9f8ec # v0.20.2
         with:
           artifact-name: sbom-${{ github.event.repository.name }}-${{ inputs.tag }}.spdx.json
           output-file: sbom-${{ github.event.repository.name }}-${{ inputs.tag }}.spdx.json
           upload-artifact-retention: 1
 
       - name: Publish SBOM
-        uses: anchore/sbom-action/publish-sbom@ab5d7b5f48981941c4c5d6bf33aeb98fe3bae38c # v0.15.10
+        uses: anchore/sbom-action/publish-sbom@cee1b8e05ae5b2593a75e197229729eabaa9f8ec # v0.20.2
         with:
           sbom-artifact-match: ".*${{ inputs.tag }}.spdx\\.json"
